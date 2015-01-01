@@ -1,6 +1,7 @@
 # Relational::Audit
 
-TODO: Write a gem description
+Audit for entities not for table.
+Entity consists of information from multiple related tables.
 
 ## Installation
 
