@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Relational::Audit::VERSION
   spec.authors       = ["Manojs"]
   spec.email         = ["manojs.nitt@gmail.com"]
-  spec.summary       = %q{Relational Audit is to audit for an entity. An entities data can be scattered in various tables. }
-  spec.description   = %q{}
-  spec.homepage      = ""
+  spec.summary       = %q{Audit for entities not for table. Entity consists of information from multiple related tables}
+  spec.description   = %q{Audit for entities not for table. Entity consists of information from multiple related tables}
+  spec.homepage      = "https://github.com/bethink/relational-audit"
   spec.license       = "MIT"
 
   #spec.files         = `git ls-files -z`.split("\x0")
