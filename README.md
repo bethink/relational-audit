@@ -21,7 +21,40 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+--------------------------
+Class User
+     has_many :addresses
+     has_one :profile
+     relational_audit :only => [:firstname, :lastname, :dob], :ignore => [:id, :created_at, :updated_at]
+end
+
+Class Address
+     belongs_to :user
+     belongs_to_audit :user
+end
+
+Class Profile
+     belongs_to :user
+     belongs_to_audit :user
+end
+
+--------------------------
+
+For polymorphic association,
+
+Assume that 'Address' is a polymporphic enity for User.
+
+Class User
+     has_many :addresses, :as => :entity
+     relational_audit
+end
+
+Class Address
+     belongs_to :entity, :polymorphic => true
+     belongs_to_audit :entity
+end
+
+--------------------------
 
 ## Contributing
 

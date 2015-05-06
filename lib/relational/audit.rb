@@ -1,5 +1,6 @@
 require "relational/audit/version"
 require 'securerandom'
+require 'relational/controller_methods.rb'
 
 module Relational
   module Audit
@@ -167,3 +168,29 @@ module Relational
 
   end
 end
+
+# ================================================
+
+ActiveRecord::Base.send :extend, Relational::Audit::ClassMethod
+ActiveRecord::Base.send :include, Relational::Audit::InstanceMethod
+
+if defined?(::ActionController)
+  ::ActiveSupport.on_load(:action_controller) { include Relational::Audit::ControllerMethods::InstanceMethods }
+end
+
+
+module RelationalAudit
+  class Audit < ActiveRecord::Base
+    has_many :audit_relations
+
+    def changeset
+      YAML::load(self.entity_changes)
+    end
+  end
+
+  class AuditRelation < ActiveRecord::Base
+    belongs_to :audit
+  end
+end
+
+# ================================================
