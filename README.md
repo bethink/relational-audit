@@ -39,7 +39,7 @@ Or install it yourself as:
     end
 
 
-### For polymorphic association,
+#### For polymorphic association
 
 Assume that 'Address' is a polymporphic enity for User.
 
