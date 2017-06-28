@@ -38,6 +38,9 @@ Or install it yourself as:
          belongs_to_audit :user
     end
 
+    @user.audits # Returns the changes in key/value pair =>  [{{:changes_by=>"Jon", :changes=>{"customers"=>["google", "facebook"], "updated_at"=>[2017-06-28 07:29:43 UTC, 2017-06-28 07:38:27 UTC]}}}, ...]
+
+    @user.raw_audits # Returns audit objects => #<ActiveRecord::Relation [#<RelationalAudit::Audit, ... 
 
 #### For polymorphic association
 
